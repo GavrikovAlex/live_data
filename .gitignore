@@ -6,9 +6,14 @@ venv/
 .venv/
 .pytest_cache/
 
-# Окружение
+# Environment
 .env
 .env.local
+
+# Generated local listing data (only the anonymized sample is committed)
+projects/*/data/*
+!projects/*/data/sample.json
+!projects/*/data/README.md
 
 # IDE
 .vscode/

@@ -1,0 +1,78 @@
+name: Update apartments Moscow dashboard
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: apartments-moscow-pages
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/apartments-moscow
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            projects/apartments-moscow/requirements.txt
+            projects/apartments-moscow/requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install -r requirements-dev.txt
+
+      - name: Run parser tests
+        run: python -m pytest tests -q
+
+      - name: Collect listing IDs
+        run: python scraper/collect_ids.py --max-pages 2 --delay 2
+
+      - name: Parse listing details
+        run: python scraper/parse_detail.py --max-listings 130 --delay 2
+
+      - name: Build dashboard
+        run: python src/build_dashboard.py
+
+      - name: Commit anonymized outputs
+        run: |
+          git add data/sample.json dashboard.html
+          if git diff --cached --quiet; then
+            echo "No dashboard changes"
+          else
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "data: update apartments Moscow dashboard"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+            git push
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p .pages/projects/apartments-moscow
+          cp dashboard.html .pages/projects/apartments-moscow/dashboard.html
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .pages
+
+      - name: Deploy GitHub Pages
+        uses: actions/deploy-pages@v4
