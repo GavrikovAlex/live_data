@@ -66,13 +66,13 @@ jobs:
 
       - name: Prepare Pages artifact
         run: |
-          mkdir -p .pages/projects/apartments-moscow
-          cp dashboard.html .pages/projects/apartments-moscow/dashboard.html
+          mkdir -p "$GITHUB_WORKSPACE/.pages/projects/apartments-moscow"
+          cp dashboard.html "$GITHUB_WORKSPACE/.pages/projects/apartments-moscow/dashboard.html"
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .pages
+          path: ${{ github.workspace }}/.pages
 
       - name: Deploy GitHub Pages
         uses: actions/deploy-pages@v4
