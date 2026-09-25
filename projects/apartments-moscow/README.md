@@ -114,16 +114,54 @@ python -m pytest tests -q
 
 ## Как обновляется
 
+Здесь две независимые вещи: **данные** обновляются вручную, **дашборд** — автоматически.
+
+### Данные: вручную, раз в неделю
+
+Cron на GitHub Actions **не собирает новые данные**. Restate (Cloudflare) отдаёт `HTTP 403`
+на все запросы с IP раннеров GitHub, поэтому сбор возможен только с рабочей сети.
+Рекомендуемый ритм — раз в неделю:
+
+```bash
+cd projects/apartments-moscow
+. .venv/bin/activate                      # если venv ещё не создан — см. «Как запустить локально»
+python scraper/collect_ids.py --max-pages 2 --delay 2
+python scraper/parse_detail.py --max-listings 130 --delay 2
+python src/build_dashboard.py
+git add data/sample.json dashboard.html
+git commit -m "data: refresh apartments sample $(date +%F)"
+git push
+```
+
+Один такой прогон занимает примерно 7–10 минут и делает около 160 сетевых запросов
+с интервалом 2 секунды.
+
+Проверить возраст снимка в любой момент:
+
+```bash
+python src/freshness.py                 # data_as_of=... age_days=... status=fresh|stale
+```
+
+`data_as_of` — дата последнего обновления `data/sample.json`. Она показывается в шапке
+дашборда рядом с временем сборки; если снимок старше 7 дней, в шапке появляется
+предупреждение, а в лог workflow пишется WARNING.
+
+### Дашборд: автоматически
+
 GitHub Actions запускает workflow раз в день в 03:00 UTC:
 
-1. Собирает ID из 33 разрешённых каталогов Restate.
-2. Разбирает до 130 detail-страниц с интервалом не менее 2 секунд.
-3. Обновляет только обезличенный `sample.json` и `dashboard.html`.
+1. Прогоняет офлайн-тесты парсеров.
+2. **Не ходит на Restate** — использует готовый `data/sample.json` из репозитория.
+3. Пересобирает `dashboard.html` и коммитит его от имени `github-actions[bot]`;
+   в тексте коммита есть строка `data_as_of`, так что по истории Git видно, когда данные
+   обновлялись фактически, а когда только пересобиралась страница.
 4. Публикует standalone-дашборд через GitHub Pages.
 
-Сырые `ids.json` и `listings.json` остаются на раннере и в Git не попадают.
-Если фильтры отсеивают почти все объявления, workflow сохраняет прежний сэмпл,
-чтобы дашборд не оставался пустым.
+Workflow можно запустить вручную с флагом `scrape`, но с IP раннера он всё равно
+закончится сбором 0 записей — этот путь оставлен для самопроверки и для запуска
+с self-hosted runner.
+
+Сырые `ids.json` и `listings.json` остаются на машине сборки и в Git не попадают.
 
 Файл workflow: [`.github/workflows/apartments-update.yml`](../../.github/workflows/apartments-update.yml).
 

@@ -5,8 +5,15 @@
 ## Что сделано
 
 Создан проект `projects/apartments-moscow/` — пайплайн «разрешённые страницы Restate → обезличенный
-sample → standalone Plotly dashboard» с ежедневным обновлением через GitHub Actions и публикацией
-на GitHub Pages.
+sample → standalone Plotly dashboard» с публикацией на GitHub Pages.
+
+Дашборд опубликован и работает:
+`https://gavrikovalex.github.io/live_data/projects/apartments-moscow/dashboard.html`
+
+Обновление разведено на два контура: **данные** собираются вручную с рабочей машины
+(раз в неделю), **страница** пересобирается автоматически cron-задачей GitHub Actions
+каждый день в 03:00 UTC. Причина — `HTTP 403` от Restate на IP раннеров; подробности
+в разделе «Обновление данных».
 
 ## Источники и правила обхода
 
@@ -68,18 +75,64 @@ sample → standalone Plotly dashboard» с ежедневным обновле�
 Standalone HTML (~4,6 МБ): Plotly встроен в файл, внешних CDN-запросов нет, ссылок на `/base/` нет.
 Шесть карточек метрик, четыре графика, пять фильтров и кнопка сброса фильтров.
 
+В шапке дашборда две даты: `data_as_of` (срез данных) и `generated_at` (сборка страницы).
+Если снимок старше 7 дней, в шапке появляется пометка «данные устарели».
+
+## Обновление данных: ручной сбор + автоматическая пересборка
+
+Причина ручного сбора — блокировка по IP, а не нарушение правил сайта: `robots.txt` Restate
+разрешает `/area/`, `/metro/`, `/adr/`, `/base/<id>.html`, но Cloudflare отдаёт `HTTP 403`
+на все 33 каталога с IP раннеров GitHub. С рабочей машины те же запросы возвращают 200.
+
+Принятая схема (вариант A из `OPTIONS-data-refresh.md`):
+
+| | Данные | Страница |
+|---|---|---|
+| Как | вручную, раз в неделю | автоматически, cron 03:00 UTC |
+| Где | рабочая машина | GitHub Actions |
+| Чем | `collect_ids.py` + `parse_detail.py` | `build_dashboard.py` из готового `sample.json` |
+
+- `workflow_dispatch` получил input `scrape` (по умолчанию `false`): шаги сбора пропускаются,
+  если не выставлен флаг, поэтому ежедневный cron сетевых запросов не делает вообще.
+- Шаг `Report data freshness` печатает `data_as_of` и возраст снимка, пишет их в
+  `$GITHUB_OUTPUT` и даёт WARNING при возрасте больше 7 дней.
+- Коммит бота содержит `data_as_of`, `rows` и пометку, что это пересборка из снимка:
+  по истории Git видно разницу между новым срезом и пересборкой страницы.
+- `src/freshness.py` — общий источник даты среза для CI и для дашборда; дата берётся
+  из коммита `data/sample.json`, поэтому сам сэмпл остаётся чистым списком строк
+  без метаданных.
+
+Ручной цикл:
+
+```bash
+cd projects/apartments-moscow && . .venv/bin/activate
+python scraper/collect_ids.py --max-pages 2 --delay 2
+python scraper/parse_detail.py --max-listings 130 --delay 2
+python src/build_dashboard.py
+git add data/sample.json dashboard.html && git commit -m "data: refresh sample" && git push
+```
+
 ## Проверки
 
-- `python -m pytest tests -q` — 8 тестов парсеров (offline, без сети);
+- `python -m pytest tests -q` — 15 тестов парсеров и свежести данных (offline, без сети);
 - `python -m compileall -q scraper src tests` — успешно;
 - `python src/transform.py --input data/sample.json` — 50 строк, медиана 22 725 000 ₽, 405 703 ₽/м²;
 - `python src/build_dashboard.py` — dashboard пересобран, payload из 50 строк совпадает с sample;
-- workflow проверен YAML-парсером, шаги выполняются из `projects/apartments-moscow`.
+- `python src/freshness.py` — `data_as_of=2026-09-25 age_days=0 status=fresh`;
+- ветка без сбора отработана на GitHub Actions: сбор пропущен, дашборд пересобран,
+  страница опубликована, тесты зелёные;
+- ветка со сбором проверена на GitHub Actions: 33 из 33 каталогов вернули `HTTP 403`,
+  ID — 0, сработал fallback на прежний сэмпл. Это ожидаемое поведение при блокировке IP;
+- workflow проверен YAML-парсером, все `run`-блоки проходят `sh -n`, шаги выполняются
+  из `projects/apartments-moscow`;
+- артефакт Pages собирается из `$GITHUB_WORKSPACE/.pages` (баг с относительным путём
+  исправлен в коммите `eeec8d8`).
 
 ## Ограничения
 
 - Проверки шли на Python 3.14.7, workflow использует 3.11.
-- Локально не проверялись GitHub Actions, Pages и push.
+- Данные обновляются только вручную: если не запустить сбор, дашборд будет честно
+  показывать старую дату среза, но сами цифры не изменятся.
 - В окружении нет браузера и JS-рантайма, поэтому dashboard проверен статически:
   баланс DOM-id, соответствие полей payload, отсутствие внешних CDN и ссылок на объявления.
 - Срез не является полным снимком рынка: берутся первые страницы каталогов.
@@ -87,6 +140,8 @@ Standalone HTML (~4,6 МБ): Plotly встроен в файл, внешних C
 
 ## Дальше
 
+- Поставить сбор по расписанию через self-hosted runner, если ручной ритм перестанет
+  устраивать (нужна машина с «домашним» IP).
 - Кэш сырых выгрузок между запусками, чтобы не перезапрашивать одни и те же ID.
 - Score по округам и районам, а не только по метро.
 - Накопление истории цен для настоящей динамики, а не среза на дату.

@@ -13,9 +13,11 @@ import pandas as pd
 from plotly.offline import get_plotlyjs
 
 try:
+    from .freshness import age_days, data_as_of
     from .metrics import add_value_score, prepare_dashboard_data
     from .transform import load_dataframe
 except ImportError:
+    from freshness import age_days, data_as_of
     from metrics import add_value_score, prepare_dashboard_data
     from transform import load_dataframe
 
@@ -24,6 +26,7 @@ DEFAULT_INPUT = PROJECT_ROOT / "data" / "sample.json"
 DEFAULT_OUTPUT = PROJECT_ROOT / "dashboard.html"
 SOURCE_URL = "https://www.restate.ru"
 REPOSITORY_URL = "https://github.com/GavrikovAlex/live_data"
+STALE_AFTER_DAYS = 7
 
 
 def _json_value(value: Any) -> Any:
@@ -94,8 +97,11 @@ def build_dashboard(
     """Render the standalone dashboard and return its output path."""
     scored = add_value_score(frame)
     summary = prepare_dashboard_data(scored)
+    snapshot_date = data_as_of()
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "data_as_of": snapshot_date,
+        "data_age_days": age_days(snapshot_date),
         "metrics": summary["metrics"],
         "rows": dashboard_rows(scored),
     }
@@ -144,6 +150,8 @@ body {
 }
 h1 { margin: 0; font-size: clamp(28px, 4vw, 46px); letter-spacing: -.04em; }
 .subtitle { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+.meta-line { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.meta-line--stale { color: #b45309; font-weight: 600; }
 .source-link { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
 .source-link:hover { text-decoration: underline; }
 .cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin-bottom: 18px; }
@@ -209,6 +217,7 @@ button:hover { background: #dce8ff; }
       <p class="eyebrow">Live market dashboard</p>
       <h1>Аналитика квартир Москвы</h1>
       <p class="subtitle">Срез вторичного рынка: цены, площади, этажность и метро.</p>
+      <p class="meta-line__DATA_AS_OF_CLASS__">Данные на __DATA_AS_OF__ · сборка дашборда __GENERATED_AT____FRESHNESS_NOTE__</p>
     </div>
     <a class="source-link" href="__SOURCE_URL__" target="_blank" rel="noreferrer">Источник: restate.ru ↗</a>
   </header>
@@ -358,11 +367,20 @@ window.__APARTMENTS_DATA__ = __DATA__;
 </body>
 </html>
 """
+    snapshot_age = payload["data_age_days"]
+    stale = snapshot_age is not None and snapshot_age > STALE_AFTER_DAYS
+    freshness_note = (
+        f" · ⚠ данные устарели ({snapshot_age} дн.)" if stale else ""
+    )
     html = (
         template.replace("__SOURCE_URL__", escape(SOURCE_URL, quote=True))
         .replace("__REPOSITORY_URL__", escape(REPOSITORY_URL, quote=True))
         .replace("__PLOTLY_JS__", plotly_js.replace("</", "<\\/"))
         .replace("__DATA__", payload_json)
+        .replace("__GENERATED_AT__", payload["generated_at"])
+        .replace("__DATA_AS_OF__", snapshot_date or "неизвестно")
+        .replace("__DATA_AS_OF_CLASS__", " meta-line--stale" if stale else "")
+        .replace("__FRESHNESS_NOTE__", freshness_note)
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(html, encoding="utf-8")

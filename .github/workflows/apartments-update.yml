@@ -2,6 +2,15 @@ name: Update apartments Moscow dashboard
 
 on:
   workflow_dispatch:
+    inputs:
+      scrape:
+        description: "Собрать свежие данные (нужен доступ к restate.ru, с раннера GitHub будет 403)"
+        type: boolean
+        default: false
+      max_listings:
+        description: "Сколько detail-страниц разобрать при сборе"
+        type: string
+        default: "130"
   schedule:
     - cron: "0 3 * * *"
 
@@ -41,22 +50,39 @@ jobs:
       - name: Run parser tests
         run: python -m pytest tests -q
 
+      - name: Skip scraping on scheduled runs
+        if: ${{ !inputs.scrape }}
+        run: |
+          echo "Restate blocks datacenter IPs (HTTP 403 from GitHub runners)."
+          echo "Scheduled runs only rebuild the dashboard from data/sample.json."
+          echo "To refresh the data manually, run the scraper locally and push the result."
+
       - name: Collect listing IDs
+        if: ${{ inputs.scrape }}
         run: python scraper/collect_ids.py --max-pages 2 --delay 2
 
       - name: Parse listing details
-        run: python scraper/parse_detail.py --max-listings 130 --delay 2
+        if: ${{ inputs.scrape }}
+        run: python scraper/parse_detail.py --max-listings "${{ inputs.max_listings || 130 }}" --delay 2
+
+      - name: Report data freshness
+        id: freshness
+        run: |
+          python src/freshness.py --github-output "$GITHUB_OUTPUT" --max-age-days 7
 
       - name: Build dashboard
         run: python src/build_dashboard.py
 
       - name: Commit anonymized outputs
         run: |
+          ROWS=$(python -c 'import json; print(len(json.load(open("data/sample.json"))))')
           git add data/sample.json dashboard.html
           if git diff --cached --quiet; then
             echo "No dashboard changes"
           else
-            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "data: update apartments Moscow dashboard"
+            printf 'data: update apartments Moscow dashboard\n\ndata_as_of: %s\nrows: %s\nrebuilt: scheduled dashboard refresh from committed sample.json\n' \
+              "${{ steps.freshness.outputs.data_as_of || 'unknown' }}" "$ROWS" \
+              | git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -F -
             git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git push
           fi
