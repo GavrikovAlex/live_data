@@ -13,7 +13,7 @@
     "metro": null,
     "okrug": "ЗелАО",
     "district": "Савёлки",
-    "published_at": "2026-10-05"
+    "published_at": "2026-10-12"
   },
   {
     "sample_index": 2,
@@ -29,39 +29,39 @@
     "metro": "Озёрная",
     "okrug": "ЗАО",
     "district": "Тропарево-Никулино",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 3,
     "city": "Москва",
-    "price": 21500000.0,
+    "price": 24000000.0,
     "price_per_m2": null,
     "rooms": 1,
-    "area_total": 40.6,
-    "area_living": 12.2,
-    "area_kitchen": 18.7,
-    "floor": 11,
-    "floors_total": 41,
-    "metro": "Марьина Роща",
+    "area_total": 36.5,
+    "area_living": 15.0,
+    "area_kitchen": 12.0,
+    "floor": 13,
+    "floors_total": 15,
+    "metro": "Алексеевская",
     "okrug": "СВАО",
-    "district": "Марьина роща",
-    "published_at": "2026-10-09"
+    "district": "Останкинский",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 4,
     "city": "Москва",
-    "price": 20609200.0,
+    "price": 13200000.0,
     "price_per_m2": null,
     "rooms": 1,
-    "area_total": 39.0,
-    "area_living": 15.9,
-    "area_kitchen": 9.6,
-    "floor": 40,
-    "floors_total": 43,
-    "metro": "Тушинская",
+    "area_total": 33.0,
+    "area_living": null,
+    "area_kitchen": 10.0,
+    "floor": 1,
+    "floors_total": 12,
+    "metro": "Сходненская",
     "okrug": "СЗАО",
-    "district": "Покровское-Стрешнево",
-    "published_at": "2026-08-02"
+    "district": "Северное Тушино",
+    "published_at": "2026-05-19"
   },
   {
     "sample_index": 5,
@@ -77,7 +77,7 @@
     "metro": "Говорово",
     "okrug": "ЗАО",
     "district": "Солнцево",
-    "published_at": "2026-10-10"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 6,
@@ -93,28 +93,28 @@
     "metro": "Белорусская",
     "okrug": "ЦАО",
     "district": "Пресненский",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 7,
     "city": "Москва",
-    "price": 20500000.0,
+    "price": 28300000.0,
     "price_per_m2": null,
     "rooms": 3,
-    "area_total": 63.6,
-    "area_living": 45.3,
-    "area_kitchen": 7.0,
-    "floor": 1,
-    "floors_total": 12,
-    "metro": "БКЛ Лефортово",
+    "area_total": 87.0,
+    "area_living": 52.0,
+    "area_kitchen": 11.2,
+    "floor": 2,
+    "floors_total": 7,
+    "metro": "Люблино",
     "okrug": "ЮВАО",
-    "district": "Лефортово",
-    "published_at": "2026-10-09"
+    "district": "Люблино",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 8,
     "city": "Москва",
-    "price": 13300000.0,
+    "price": 13000000.0,
     "price_per_m2": null,
     "rooms": 2,
     "area_total": 37.6,
@@ -125,23 +125,23 @@
     "metro": "Пражская",
     "okrug": "ЮАО",
     "district": "Чертаново Центральное",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 9,
     "city": "Москва",
-    "price": 15500000.0,
+    "price": 16000000.0,
     "price_per_m2": null,
     "rooms": 3,
-    "area_total": 56.2,
-    "area_living": 37.6,
+    "area_total": 51.1,
+    "area_living": 33.5,
     "area_kitchen": 6.1,
-    "floor": 7,
+    "floor": 1,
     "floors_total": 9,
-    "metro": null,
+    "metro": "Новогиреево",
     "okrug": "ВАО",
-    "district": "Ивановское",
-    "published_at": "2026-10-09"
+    "district": "Вешняки",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 10,
@@ -157,7 +157,7 @@
     "metro": "Марьина Роща",
     "okrug": "СВАО",
     "district": "Марьина роща",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 11,
@@ -173,7 +173,7 @@
     "metro": "Говорово",
     "okrug": "ЗАО",
     "district": "Солнцево",
-    "published_at": "2026-10-10"
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 12,
@@ -189,23 +189,23 @@
     "metro": null,
     "okrug": "ЗелАО",
     "district": "Крюково",
-    "published_at": "2026-10-05"
+    "published_at": "2026-10-12"
   },
   {
     "sample_index": 13,
     "city": "Москва",
-    "price": 15500000.0,
+    "price": 59000000.0,
     "price_per_m2": null,
     "rooms": 1,
-    "area_total": 34.0,
-    "area_living": 20.0,
-    "area_kitchen": 9.0,
-    "floor": 2,
-    "floors_total": 9,
-    "metro": "Красногвардейская",
+    "area_total": 87.8,
+    "area_living": 40.4,
+    "area_kitchen": 21.6,
+    "floor": 15,
+    "floors_total": 32,
+    "metro": "Павелецкая",
     "okrug": "ЮАО",
-    "district": "Орехово-Борисово Южное",
-    "published_at": "2026-10-09"
+    "district": "Даниловский",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 14,
@@ -221,7 +221,7 @@
     "metro": "Волоколамская",
     "okrug": "СЗАО",
     "district": "Покровское-Стрешнево",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 15,
@@ -237,55 +237,55 @@
     "metro": "Отрадное",
     "okrug": "СВАО",
     "district": "Отрадное",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 16,
     "city": "Москва",
-    "price": 23300000.0,
+    "price": 30300000.0,
     "price_per_m2": null,
     "rooms": 3,
-    "area_total": 62.0,
-    "area_living": 39.0,
-    "area_kitchen": 9.0,
-    "floor": 11,
-    "floors_total": 12,
-    "metro": "Бибирево",
+    "area_total": 58.2,
+    "area_living": 34.0,
+    "area_kitchen": 12.0,
+    "floor": 13,
+    "floors_total": 38,
+    "metro": "Дмитровская",
     "okrug": "СВАО",
-    "district": "Бибирево",
-    "published_at": "2026-10-09"
+    "district": "Бутырский",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 17,
     "city": "Москва",
-    "price": 16300000.0,
+    "price": 11137400.0,
     "price_per_m2": null,
     "rooms": 1,
-    "area_total": 32.4,
-    "area_living": 18.5,
-    "area_kitchen": 6.0,
-    "floor": 4,
-    "floors_total": 5,
-    "metro": "Молодежная",
+    "area_total": 26.9,
+    "area_living": 16.3,
+    "area_kitchen": null,
+    "floor": 6,
+    "floors_total": 15,
+    "metro": "Говорово",
     "okrug": "ЗАО",
-    "district": "Кунцево",
-    "published_at": "2026-10-10"
+    "district": "Солнцево",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 18,
     "city": "Москва",
-    "price": 42500000.0,
+    "price": 36950000.0,
     "price_per_m2": null,
     "rooms": 3,
-    "area_total": 104.0,
-    "area_living": 71.9,
-    "area_kitchen": 28.0,
-    "floor": 2,
-    "floors_total": 16,
-    "metro": "Генерала Тюленева",
+    "area_total": 64.1,
+    "area_living": 50.0,
+    "area_kitchen": 10.0,
+    "floor": 6,
+    "floors_total": 34,
+    "metro": "БКЛ Воронцовская",
     "okrug": "ЮЗАО",
-    "district": "Теплый стан",
-    "published_at": "2026-10-09"
+    "district": "Обручевский",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 19,
@@ -301,7 +301,7 @@
     "metro": "Минская",
     "okrug": "ЗАО",
     "district": "Раменки",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 20,
@@ -317,7 +317,7 @@
     "metro": "БКЛ Зюзино",
     "okrug": "ЮАО",
     "district": "Орехово-Борисово Южное",
-    "published_at": "2026-10-10"
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 21,
@@ -333,12 +333,12 @@
     "metro": null,
     "okrug": "ЗелАО",
     "district": "Матушкино",
-    "published_at": "2026-10-07"
+    "published_at": "2026-10-14"
   },
   {
     "sample_index": 22,
     "city": "Москва",
-    "price": 12800000.0,
+    "price": 12600000.0,
     "price_per_m2": null,
     "rooms": 1,
     "area_total": 36.9,
@@ -349,122 +349,10 @@
     "metro": null,
     "okrug": "САО",
     "district": "Молжаниновский",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 23,
-    "city": "Москва",
-    "price": 27000000.0,
-    "price_per_m2": null,
-    "rooms": 2,
-    "area_total": 66.6,
-    "area_living": null,
-    "area_kitchen": 23.0,
-    "floor": 31,
-    "floors_total": 33,
-    "metro": "Черкизовская",
-    "okrug": "ВАО",
-    "district": "Преображенское",
-    "published_at": "2026-09-16"
-  },
-  {
-    "sample_index": 24,
-    "city": "Москва",
-    "price": 19000000.0,
-    "price_per_m2": null,
-    "rooms": 1,
-    "area_total": 42.0,
-    "area_living": 12.0,
-    "area_kitchen": 20.0,
-    "floor": 6,
-    "floors_total": 22,
-    "metro": "Рассказовка",
-    "okrug": "НАО",
-    "district": "Внуково",
-    "published_at": "2026-10-09"
-  },
-  {
-    "sample_index": 25,
-    "city": "Москва",
-    "price": 12000000.0,
-    "price_per_m2": null,
-    "rooms": 1,
-    "area_total": 38.0,
-    "area_living": 17.0,
-    "area_kitchen": 9.0,
-    "floor": 2,
-    "floors_total": 6,
-    "metro": null,
-    "okrug": "ЗелАО",
-    "district": "Крюково",
-    "published_at": "2026-10-05"
-  },
-  {
-    "sample_index": 26,
-    "city": "Москва",
-    "price": 14000000.0,
-    "price_per_m2": null,
-    "rooms": 3,
-    "area_total": 58.0,
-    "area_living": 48.0,
-    "area_kitchen": 6.0,
-    "floor": 1,
-    "floors_total": 16,
-    "metro": "Выхино",
-    "okrug": "ВАО",
-    "district": "Вешняки",
-    "published_at": "2026-10-10"
-  },
-  {
-    "sample_index": 27,
-    "city": "Москва",
-    "price": 19600000.0,
-    "price_per_m2": null,
-    "rooms": 3,
-    "area_total": 74.0,
-    "area_living": 45.0,
-    "area_kitchen": 10.0,
-    "floor": 10,
-    "floors_total": 14,
-    "metro": null,
-    "okrug": "ЗелАО",
-    "district": "Крюково",
-    "published_at": "2026-10-05"
-  },
-  {
-    "sample_index": 28,
-    "city": "Москва",
-    "price": 26000000.0,
-    "price_per_m2": null,
-    "rooms": 3,
-    "area_total": 81.0,
-    "area_living": 53.6,
-    "area_kitchen": 10.0,
-    "floor": 3,
-    "floors_total": 5,
-    "metro": "Тушинская",
-    "okrug": "СЗАО",
-    "district": "Покровское-Стрешнево",
-    "published_at": "2026-10-09"
-  },
-  {
-    "sample_index": 29,
-    "city": "Москва",
-    "price": 36500000.0,
-    "price_per_m2": null,
-    "rooms": 3,
-    "area_total": 62.0,
-    "area_living": 50.0,
-    "area_kitchen": 6.0,
-    "floor": 23,
-    "floors_total": 25,
-    "metro": "Варшавская",
-    "okrug": "ЮАО",
-    "district": "Москворечье-Сабурово",
-    "published_at": "2026-10-09"
-  },
-  {
-    "sample_index": 30,
     "city": "Москва",
     "price": 22000000.0,
     "price_per_m2": null,
@@ -480,6 +368,118 @@
     "published_at": "2026-07-17"
   },
   {
+    "sample_index": 24,
+    "city": "Москва",
+    "price": 16500000.0,
+    "price_per_m2": null,
+    "rooms": 1,
+    "area_total": 34.0,
+    "area_living": 15.0,
+    "area_kitchen": 13.0,
+    "floor": 11,
+    "floors_total": 25,
+    "metro": "Коммунарка",
+    "okrug": "НАО",
+    "district": "Новомосковский",
+    "published_at": "2026-10-16"
+  },
+  {
+    "sample_index": 25,
+    "city": "Москва",
+    "price": 12000000.0,
+    "price_per_m2": null,
+    "rooms": 1,
+    "area_total": 38.0,
+    "area_living": 17.0,
+    "area_kitchen": 9.0,
+    "floor": 2,
+    "floors_total": 6,
+    "metro": null,
+    "okrug": "ЗелАО",
+    "district": "Крюково",
+    "published_at": "2026-10-12"
+  },
+  {
+    "sample_index": 26,
+    "city": "Москва",
+    "price": 18104000.0,
+    "price_per_m2": null,
+    "rooms": 3,
+    "area_total": 58.0,
+    "area_living": 48.0,
+    "area_kitchen": 6.0,
+    "floor": 1,
+    "floors_total": 16,
+    "metro": "Выхино",
+    "okrug": "ВАО",
+    "district": "Вешняки",
+    "published_at": "2026-10-18"
+  },
+  {
+    "sample_index": 27,
+    "city": "Москва",
+    "price": 14500000.0,
+    "price_per_m2": null,
+    "rooms": 3,
+    "area_total": 66.0,
+    "area_living": 42.0,
+    "area_kitchen": 9.0,
+    "floor": 11,
+    "floors_total": 22,
+    "metro": null,
+    "okrug": "ЗелАО",
+    "district": "Силино",
+    "published_at": "2025-06-23"
+  },
+  {
+    "sample_index": 28,
+    "city": "Москва",
+    "price": 26700000.0,
+    "price_per_m2": null,
+    "rooms": 3,
+    "area_total": 54.9,
+    "area_living": 46.0,
+    "area_kitchen": 4.0,
+    "floor": 2,
+    "floors_total": 5,
+    "metro": "БКЛ Давыдково",
+    "okrug": "СЗАО",
+    "district": "Хорошево-Мневники",
+    "published_at": "2026-10-16"
+  },
+  {
+    "sample_index": 29,
+    "city": "Москва",
+    "price": 36500000.0,
+    "price_per_m2": null,
+    "rooms": 3,
+    "area_total": 62.0,
+    "area_living": 50.0,
+    "area_kitchen": 6.0,
+    "floor": 23,
+    "floors_total": 25,
+    "metro": "Варшавская",
+    "okrug": "ЮАО",
+    "district": "Москворечье-Сабурово",
+    "published_at": "2026-10-16"
+  },
+  {
+    "sample_index": 30,
+    "city": "Москва",
+    "price": 21474900.0,
+    "price_per_m2": null,
+    "rooms": 2,
+    "area_total": 51.0,
+    "area_living": 25.2,
+    "area_kitchen": 12.0,
+    "floor": 16,
+    "floors_total": 25,
+    "metro": "Черкизовская",
+    "okrug": "ВАО",
+    "district": "Гольяново",
+    "published_at": "2026-08-02"
+  },
+  {
     "sample_index": 31,
     "city": "Москва",
     "price": 21673200.0,
@@ -493,39 +493,39 @@
     "metro": "Беломорская",
     "okrug": "САО",
     "district": "Молжаниновский",
-    "published_at": "2026-10-10"
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 32,
     "city": "Москва",
-    "price": 31500000.0,
+    "price": 64990000.0,
     "price_per_m2": null,
     "rooms": 3,
-    "area_total": 71.0,
-    "area_living": 42.0,
+    "area_total": 126.5,
+    "area_living": 73.0,
     "area_kitchen": 10.0,
-    "floor": 5,
-    "floors_total": 5,
-    "metro": "Октябрьское поле",
+    "floor": 31,
+    "floors_total": 48,
+    "metro": "Щукинская",
     "okrug": "СЗАО",
     "district": "Щукино",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 33,
     "city": "Москва",
-    "price": 20900000.0,
+    "price": 21900000.0,
     "price_per_m2": null,
     "rooms": 3,
-    "area_total": 75.2,
-    "area_living": 44.9,
-    "area_kitchen": 10.1,
-    "floor": 8,
-    "floors_total": 10,
-    "metro": "Улица Скобелевская",
+    "area_total": 58.6,
+    "area_living": 44.6,
+    "area_kitchen": 6.0,
+    "floor": 5,
+    "floors_total": 9,
+    "metro": "Беляево",
     "okrug": "ЮЗАО",
-    "district": "Южное Бутово",
-    "published_at": "2026-10-10"
+    "district": "Коньково",
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 34,
@@ -541,7 +541,7 @@
     "metro": "Улица Академика Королёва",
     "okrug": "СВАО",
     "district": "Останкинский",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 35,
@@ -557,7 +557,7 @@
     "metro": null,
     "okrug": "ЗАО",
     "district": "Очаково-Матвеевское",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 36,
@@ -573,7 +573,7 @@
     "metro": "Деловой центр",
     "okrug": "ЦАО",
     "district": "Пресненский",
-    "published_at": "2026-10-10"
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 37,
@@ -589,60 +589,60 @@
     "metro": "Саларьево 13 мин на автобусе",
     "okrug": "ТАО",
     "district": "Филимонковский",
-    "published_at": "2026-10-10"
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 38,
     "city": "Москва",
-    "price": 18985400.0,
+    "price": 31600000.0,
     "price_per_m2": null,
     "rooms": 2,
-    "area_total": 53.2,
-    "area_living": 25.5,
-    "area_kitchen": 10.6,
-    "floor": 7,
-    "floors_total": 14,
+    "area_total": 56.0,
+    "area_living": 32.0,
+    "area_kitchen": 12.0,
+    "floor": 15,
+    "floors_total": 22,
     "metro": "Беломорская",
     "okrug": "САО",
-    "district": "Молжаниновский",
-    "published_at": "2026-10-10"
+    "district": "Левобережный",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 39,
     "city": "Москва",
-    "price": 20488200.0,
+    "price": 20280900.0,
     "price_per_m2": null,
     "rooms": 2,
-    "area_total": 61.4,
+    "area_total": 59.4,
     "area_living": 29.7,
-    "area_kitchen": 13.4,
-    "floor": 14,
-    "floors_total": 14,
+    "area_kitchen": 12.2,
+    "floor": 12,
+    "floors_total": 12,
     "metro": "Беломорская",
     "okrug": "САО",
     "district": "Молжаниновский",
-    "published_at": "2026-10-10"
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 40,
     "city": "Москва",
-    "price": 13500000.0,
+    "price": 41900000.0,
     "price_per_m2": null,
     "rooms": 2,
-    "area_total": 37.5,
-    "area_living": 22.0,
-    "area_kitchen": 7.0,
-    "floor": 4,
-    "floors_total": 9,
-    "metro": "Чертановская",
+    "area_total": 65.6,
+    "area_living": 27.0,
+    "area_kitchen": 16.0,
+    "floor": 3,
+    "floors_total": 12,
+    "metro": "Автозаводская",
     "okrug": "ЮАО",
-    "district": "Нагорный",
-    "published_at": "2026-10-09"
+    "district": "Даниловский",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 41,
     "city": "Москва",
-    "price": 16900000.0,
+    "price": 17000000.0,
     "price_per_m2": null,
     "rooms": 2,
     "area_total": 54.6,
@@ -653,7 +653,7 @@
     "metro": null,
     "okrug": "ЗелАО",
     "district": "Крюково",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 42,
@@ -669,39 +669,39 @@
     "metro": "Некрасовка",
     "okrug": "ЮВАО",
     "district": "Некрасовка",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 43,
     "city": "Москва",
-    "price": 19600000.0,
+    "price": 15500000.0,
     "price_per_m2": null,
     "rooms": 2,
-    "area_total": 46.8,
-    "area_living": 28.9,
-    "area_kitchen": 7.9,
+    "area_total": 39.7,
+    "area_living": 26.0,
+    "area_kitchen": 4.0,
     "floor": 10,
-    "floors_total": 25,
-    "metro": "Саларьево",
+    "floors_total": 20,
+    "metro": null,
     "okrug": "НАО",
     "district": "Новомосковский",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 44,
     "city": "Москва",
-    "price": 38900000.0,
+    "price": 19400000.0,
     "price_per_m2": null,
     "rooms": 2,
-    "area_total": 66.0,
-    "area_living": 32.9,
-    "area_kitchen": 18.0,
-    "floor": 4,
-    "floors_total": 22,
-    "metro": "МЦД-4 Серп и Молот",
+    "area_total": 60.0,
+    "area_living": 40.0,
+    "area_kitchen": 15.0,
+    "floor": 6,
+    "floors_total": 25,
+    "metro": "Некрасовка",
     "okrug": "ЮВАО",
-    "district": "Лефортово",
-    "published_at": "2026-10-09"
+    "district": "Некрасовка",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 45,
@@ -717,39 +717,39 @@
     "metro": null,
     "okrug": "ЗелАО",
     "district": "Крюково",
-    "published_at": "2026-10-05"
+    "published_at": "2026-10-12"
   },
   {
     "sample_index": 46,
     "city": "Москва",
-    "price": 41900000.0,
+    "price": 26000000.0,
     "price_per_m2": null,
     "rooms": 2,
-    "area_total": 65.6,
-    "area_living": 27.0,
-    "area_kitchen": 16.0,
-    "floor": 3,
-    "floors_total": 12,
-    "metro": "Автозаводская",
+    "area_total": 54.2,
+    "area_living": 22.2,
+    "area_kitchen": 19.4,
+    "floor": 10,
+    "floors_total": 16,
+    "metro": "Домодедовская",
     "okrug": "ЮАО",
-    "district": "Даниловский",
-    "published_at": "2026-10-09"
+    "district": "Орехово-Борисово Южное",
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 47,
     "city": "Москва",
-    "price": 17000000.0,
+    "price": 20488200.0,
     "price_per_m2": null,
     "rooms": 2,
-    "area_total": 45.0,
-    "area_living": 30.0,
-    "area_kitchen": 7.0,
-    "floor": 6,
-    "floors_total": 9,
-    "metro": null,
+    "area_total": 61.4,
+    "area_living": 29.7,
+    "area_kitchen": 13.4,
+    "floor": 14,
+    "floors_total": 14,
+    "metro": "Беломорская",
     "okrug": "САО",
-    "district": "Западное Дегунино",
-    "published_at": "2026-10-10"
+    "district": "Молжаниновский",
+    "published_at": "2026-10-18"
   },
   {
     "sample_index": 48,
@@ -765,7 +765,7 @@
     "metro": "Крылатское",
     "okrug": "ЗАО",
     "district": "Крылатское",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 49,
@@ -781,22 +781,22 @@
     "metro": "Алексеевская",
     "okrug": "СВАО",
     "district": "Останкинский",
-    "published_at": "2026-10-09"
+    "published_at": "2026-10-16"
   },
   {
     "sample_index": 50,
     "city": "Москва",
-    "price": 14500000.0,
+    "price": 18000000.0,
     "price_per_m2": null,
     "rooms": 1,
-    "area_total": 36.0,
-    "area_living": 15.0,
-    "area_kitchen": 8.3,
-    "floor": 2,
-    "floors_total": 17,
+    "area_total": 48.0,
+    "area_living": 19.0,
+    "area_kitchen": 10.0,
+    "floor": 20,
+    "floors_total": 20,
     "metro": "Яхромская",
     "okrug": "САО",
-    "district": "Восточное Дегунино",
-    "published_at": "2026-10-09"
+    "district": "Дмитровский",
+    "published_at": "2026-10-16"
   }
 ]
